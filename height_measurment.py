@@ -48,6 +48,7 @@ def main():
     signal.signal(signal.SIGINT, close)
     # set GPIO input and output channels
     GPIO.setup(pinTrigger, GPIO.OUT)
+    GPIO.setup(pinBuzz, GPIO.OUT)
     GPIO.setup(pinEcho, GPIO.IN)
 
     print("Hello World!")
@@ -67,7 +68,7 @@ def main():
         print(f"Resultant height = {height} cm")
         
         GPIO.output(pinBuzz, True)
-        time.sleep(2)
+        time.sleep(0.5)
         GPIO.output(pinBuzz, False)
 
 
