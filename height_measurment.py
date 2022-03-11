@@ -9,6 +9,7 @@ GPIO.setmode(GPIO.BCM)
 # set GPIO Pins
 pinTrigger = 18
 pinEcho = 24
+pinBuzz = 19
 
 def close(signal, frame):
 	print("\nTurning off ultrasonic distance detection...\n")
@@ -64,6 +65,10 @@ def main():
         print(f"Current distance {current_distance}")
         height=initial_distance-current_distance
         print(f"Resultant height = {height} cm")
+        
+        GPIO.output(pinBuzz, True)
+        time.sleep(2)
+        GPIO.output(pinBuzz, False)
 
 
 if __name__ == "__main__":
